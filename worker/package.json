@@ -4,7 +4,8 @@
   "description": "AWS Node Worker",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/WebSeed/aws-node-worker/issues"
   },
-  "homepage": "https://github.com/WebSeed/aws-node-worker#readme"
+  "homepage": "https://github.com/WebSeed/aws-node-worker#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "kue": "^0.11.0",
+    "redis": "^2.6.0-2"
+  }
 }
