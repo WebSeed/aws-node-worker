@@ -11,30 +11,8 @@ Uses CloudFormation to create:
 ## Docker
 
 ```bash
-docker build -t node-worker .
-
 docker ps
-
-docker logs <container-id>
-
-docker run -it node-worker /bin/bash
-docker run -p 49160:8000 -d node-worker
-
-// -d runs the container in detached mode
-// -p flag redirects a public port to a private port inside the container
-docker run -P -d node-worker
-
-docker kill $(docker ps -q)
-
-docker exec -it $(docker ps -q) /bin/bash
-
-docker inspect $(docker ps -q) | grep IPAddress
-
 docker-machine ip
-
-curl -i $(docker-machine ip):32770
-
-docker run -d --name worker -p 8080 --link redis:redis worker
 
 # BUILD
 docker build -t worker -f worker/Dockerfile .
@@ -64,9 +42,6 @@ docker run -d --name load-balancer -p 3000:3000 --link worker:worker load-balanc
 
 # STOP ALL
 docker stop $(docker ps -a -q)
-
-
-
 
 docker-compose build
 docker-compose up

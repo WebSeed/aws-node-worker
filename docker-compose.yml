@@ -10,21 +10,22 @@ worker1:
   build: ./worker
   links:
     - queue
-  ports:
-    - "8080"
 worker2:
   build: ./worker
   links:
     - queue
-  ports:
-    - "8080"
 worker3:
   build: ./worker
   links:
     - queue
+web:
+  build: ./web
+  links:
+    - queue
   ports:
-    - "8080"
+    - "4000:4000"
+    - "4001:4001"
 queue:
-  image: queue
+  build: ./queue
   ports:
     - "6379"
