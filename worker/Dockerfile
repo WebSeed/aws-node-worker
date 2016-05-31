@@ -1,9 +1,16 @@
 FROM ubuntu
 
 RUN apt-get update && \
-  apt-get -y install sudo curl && \
+  apt-get install -y sudo curl && \
   curl -sL https://deb.nodesource.com/setup_6.x | sudo bash - && \
-  apt-get -y install build-essential nodejs
+  apt-get install -y \
+  build-essential \
+  libxi-dev \
+  libglu1-mesa-dev \
+  libglew-dev \
+  xvfb \
+  python \
+  nodejs
 
 RUN npm install -g nodemon
 
@@ -17,4 +24,4 @@ COPY /src /src/app
 EXPOSE  8080
 
 # CMD ["npm", "start"]
-CMD ["nodemon", "/src/app/index.js"]
+# CMD ["nodemon", "/src/app/index.js"]

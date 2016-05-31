@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/WebSeed/aws-node-worker#readme",
   "dependencies": {
+    "gl": "^4.0.0",
     "kue": "^0.11.0",
     "redis": "^2.6.0-2"
   }
